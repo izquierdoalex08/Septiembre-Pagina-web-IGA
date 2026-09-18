@@ -1,0 +1,224 @@
+<!DOCTYPE html> <!-- Declara que es un documento HTML5 -->
+<html lang="es"> <!-- Define el idioma en español -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mitos - Mes Patrio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700;900&family=Montserrat:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F8F3E6;
+      font-family: 'Montserrat', sans-serif;
+      color: #333333;
+    }
+
+    .contenedor {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: calc(100vh - 120px);
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0 30px 0;
+    }
+
+    .titulo-septiembre {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 3.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .verde { color: #2E5A36; }
+    .cafe { color: #8D6E63; }
+    .rojo { color: #C62828; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      background-color: #FFFFFF;
+      padding: 8px 15px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #555555;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover, nav a.activo {
+      background-color: #8CA986;
+      color: #FFFFFF;
+    }
+
+    .titulo-seccion {
+      text-align: center;
+      font-family: 'Fredoka', sans-serif;
+      color: #2E5A36;
+      font-size: 2.2rem;
+      margin: 30px 0 25px 0;
+    }
+
+    /* Cuadros de los mitos */
+    .grid-mitos {
+      display: grid; /* Organiza las tarjetas en una cuadrícula flexible */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Hace que las tarjetas se acomoden solas según el tamaño de pantalla */
+      gap: 20px; /* Separación de 20px entre tarjetas */
+    }
+
+    .tarjeta-mito {
+      padding: 25px 20px; /* Relleno amplio adentro para que no se amontone el texto */
+      border-radius: 25px; /* Bordes muy redondeados tipo cápsula suave */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06); /* Sombra ligera para elevación */
+      display: flex; /* Alinea el título y la realidad en columna */
+      flex-direction: column; /* Coloca el mito arriba y la realidad abajo */
+      gap: 12px; /* Espacio de 12px entre la pregunta del mito y la explicación */
+    }
+
+    .mito-titulo {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      text-transform: uppercase; /* Convierte el título a mayúsculas para resaltarlo */
+      letter-spacing: 0.5px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed rgba(0,0,0,0.15); /* Línea punteada divisoria entre el mito y la realidad */
+    }
+
+    .realidad-texto {
+      font-size: 0.85rem;
+      line-height: 1.5; /* Altura de renglón amplia para facilitar la lectura */
+    }
+
+    /* Variantes de color completo para cada tarjeta */
+    .card-verde {
+      background-color: #2E5A36; /* Tarjeta verde oscuro */
+      color: #FFFFFF; /* Texto blanco para contrastar */
+    }
+    .card-verde .mito-titulo { border-bottom-color: rgba(255,255,255,0.2); } /* Línea divisoria clara para fondo oscuro */
+
+    .card-amarilla {
+      background-color: #FCE076; /* Tarjeta amarillo cálido */
+      color: #4A3B00; /* Texto café oscuro para buen contraste */
+    }
+
+    .card-beige {
+      background-color: #F3E5AB; /* Tarjeta beige suave */
+      color: #3E3214; /* Texto café oscuro */
+    }
+
+    .card-roja {
+      background-color: #C62828; /* Tarjeta rojo patrio */
+      color: #FFFFFF; /* Texto blanco */
+    }
+    .card-roja .mito-titulo { border-bottom-color: rgba(255,255,255,0.2); } /* Línea divisoria clara para fondo oscuro */
+
+    footer {
+      background-color: #8C1C13;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .autor-firma {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+    }
+
+    .sub-firma {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <header>
+      <h1 class="titulo-septiembre">
+        <span class="verde">* SEP</span><span class="cafe">TIEM</span><span class="rojo">BRE *</span>
+      </h1>
+
+      <nav>
+        <a href="index.html">INICIO</a>
+        <a href="calendario.html">CALENDARIO DE FECHAS FESTIVAS</a>
+        <a href="personajes.html">PERSONAJES</a>
+        <a href="datoscuriosos.html">DATOS CURIOSOS</a>
+        <a href="mitos.html" class="activo">MITOS</a> <!-- Marca la pestaña Mitos como la activa -->
+      </nav>
+    </header>
+
+    <main>
+      <h2 class="titulo-seccion">Mitos e Historia Real</h2>
+
+      <div class="grid-mitos"> <!-- Contenedor principal de la galería de mitos -->
+        
+        <div class="tarjeta-mito card-verde"> <!-- Tarjeta con diseño verde -->
+          <div class="mito-titulo">
+            <strong>Mito:</strong> El Pípila existió tal como se cuenta
+          </div>
+
+          <div class="realidad-texto">
+            <strong>Realidad:</strong> No existen documentos históricos que acrediten la existencia individual de Juan José de los Reyes Martínez. "El Pípila" representa la fuerza colectiva de los miles de mineros e indígenas que participaron en la toma de la Alhóndiga de Granaditas.
+          </div>
+        </div>
+
+        <div class="tarjeta-mito card-amarilla"> <!-- Tarjeta con diseño amarillo -->
+          <div class="mito-titulo">
+            <strong>Mito:</strong> Juan Escutia se envolvió en la bandera y se arrojó desde el Castillo
+          </div>
+          <div class="realidad-texto">
+            <strong>Realidad:</strong> Fue un mito popularizado en el siglo XIX para ensalzar el heroísmo nacional. No hay registros castrenses de la época que confirmen este acto; de hecho, los reportes oficiales señalan que la bandera fue capturada por las tropas estadounidenses.
+          </div>
+        </div>
+
+        <div class="tarjeta-mito card-beige"> <!-- Tarjeta con diseño beige -->
+          <div class="mito-titulo">
+            <strong>Mito:</strong> Miguel Hidalgo buscaba la independencia total desde el primer día
+          </div>
+          <div class="realidad-texto">
+            <strong>Realidad:</strong> El movimiento insurgente inició defendiendo la autonomía del Reino de la Nueva España frente a la invasión francesa en España. El grito original incluyó vivas al Rey Fernando VII; la idea de una república independiente evolucionó tiempo después con Morelos.
+          </div>
+        </div>
+
+        <div class="tarjeta-mito card-roja"> <!-- Tarjeta con diseño rojo -->
+          <div class="mito-titulo">
+            <strong>Mito:</strong> La Bandera Mexicana es solo una copia de la italiana
+          </div>
+          <div class="realidad-texto">
+            <strong>Realidad:</strong> Aunque comparten los mismos colores, la bandera mexicana nació de forma independiente en 1821 con el Ejército Trigarante (los colores representaban religión, unión e independencia). Además, la proporción y el escudo nacional al centro la hacen un diseño único.
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <footer>
+    <div class="autor-firma">Izquierdo Gaytan Alexander 5°J</div>
+    <div class="sub-firma">24308051280852</div>
+  </footer>
+
+</body>
+</html>

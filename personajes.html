@@ -1,0 +1,268 @@
+<!DOCTYPE html> <!-- Declara que la página es HTML5 -->
+<html lang="es"> <!-- Establece el idioma principal como español -->
+<head> <!-- Zona de configuración y carga de recursos -->
+  <meta charset="UTF-8"> <!-- Permite mostrar acentos y caracteres como la ñ sin fallas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta el tamaño al ancho de celulares y tablets -->
+  <title>Personajes - Mes Patrio</title> <!-- Título visible en la pestaña del navegador -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700;900&family=Montserrat:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet"> <!-- Carga los estilos de letra desde Google Fonts -->
+  <style> <!-- Bloque de diseño y estilos CSS -->
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* Mantiene la medida exacta de las cajas sumando bordes y rellenos */
+    }
+
+    body {
+      background-color: #F8F3E6; /* Tono beige o crema claro para el fondo principal */
+      font-family: 'Montserrat', sans-serif; /* Tipografía limpia para el cuerpo del texto */
+      color: #333333; /* Gris oscuro para una lectura cómoda */
+    }
+
+    .contenedor {
+      max-width: 1000px; /* Ancho máximo de la página para que no se extienda demasiado */
+      margin: 0 auto; /* Centra el contenido en medio de la pantalla */
+      padding: 20px; /* Colchón de aire a los lados */
+      min-height: calc(100vh - 120px); /* Asegura que el contenido ocupe casi toda la pantalla visible */
+    }
+
+    header {
+      text-align: center; /* Centra el título y menú superior */
+      padding: 20px 0 30px 0; /* Margen interno arriba y abajo */
+    }
+
+    .titulo-septiembre {
+      font-family: 'Fredoka', sans-serif; /* Tipo de letra redonda y gruesa */
+      font-size: 3.2rem; /* Tamaño de texto grande */
+      letter-spacing: 2px; /* Separa ligeramente cada letra */
+      margin-bottom: 20px; /* Espacio para no pegar los botones del menú */
+    }
+
+    /* Colores patrios aplicables a textos */
+    .verde { color: #2E5A36; } /* Color verde patrio */
+    .cafe { color: #8D6E63; } /* Color café cálido */
+    .rojo { color: #C62828; } /* Color rojo vivo */
+
+    nav {
+      display: flex; /* Alinea las opciones del menú de forma horizontal */
+      justify-content: center; /* Ubica el menú justo al centro */
+      gap: 10px; /* Distancia entre un botón y otro */
+      background-color: #FFFFFF; /* Fondo blanco para la barra */
+      padding: 8px 15px; /* Tamaño del marco interno del menú */
+      border-radius: 30px; /* Esquinas muy redondeadas estilo píldora */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra difuminada muy suave */
+      flex-wrap: wrap; /* Pasa botones abajo si la pantalla es muy estrecha */
+    }
+
+    nav a {
+      text-decoration: none; /* Elimina la línea subrayada predeterminada */
+      color: #555555; /* Color gris de texto para los enlaces */
+      font-weight: 700; /* Aplica negrita */
+      font-size: 0.8rem; /* Tamaño de letra compacto */
+      padding: 8px 16px; /* Espaciado dentro de cada botón */
+      border-radius: 20px; /* Redondea los bordes del botón */
+      transition: all 0.3s ease; /* Transición suave al pasar el ratón */
+    }
+
+    nav a:hover, nav a.activo {
+      background-color: #8CA986; /* Fondo verde suave para la pestaña seleccionada o señalada */
+      color: #FFFFFF; /* Letras en blanco al pasar por encima */
+    }
+
+    .titulo-seccion {
+      text-align: center; /* Centra el título de la sección */
+      font-family: 'Fredoka', sans-serif; /* Tipografía llamativa */
+      color: #2E5A36; /* Color verde */
+      font-size: 2.2rem; /* Tamaño intermedio */
+      margin: 30px 0 20px 0; /* Espaciado arriba y abajo */
+    }
+
+    .bloque-texto-personajes {
+      background-color: #FFFFFF; /* Cuadro blanco explicativo */
+      padding: 20px 25px; /* Espaciado dentro del cuadro */
+      border-radius: 18px; /* Bordes redondeados */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra liviana */
+      border-left: 6px solid #2E5A36; /* Detalle de línea verde en el borde izquierdo */
+      margin-bottom: 30px; /* Espacio antes de iniciar las tarjetas */
+      text-align: center; /* Alinea el texto en el medio */
+    }
+
+    .bloque-texto-personajes h3 {
+      font-family: 'Fredoka', sans-serif; /* Letra gruesa para subtítulos */
+      color: #2E5A36; /* Texto en verde */
+      font-size: 1.2rem;
+      margin-bottom: 8px; /* Separación del texto de abajo */
+    }
+
+    .bloque-texto-personajes p {
+      font-size: 0.9rem; /* Letra mediana */
+      line-height: 1.5; /* Espacio conveniente entre renglones */
+      color: #555555;
+    }
+
+    /* Galería responsiva para las tarjetas de personajes */
+    .grid-personajes {
+      display: grid; /* Activa la cuadrícula automática */
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); /* Acomoda cuántas tarjetas quepan según la pantalla */
+      gap: 20px; /* Espacio uniforme entre cada tarjeta */
+    }
+
+    .tarjeta-personaje {
+      background-color: #FFFFFF; /* Fondo blanco para las tarjetas */
+      border-radius: 18px; /* Esquinas suavizadas */
+      padding: 15px; /* Margen interno */
+      text-align: center; /* Centra foto, título y texto */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra para simular relieve */
+      border-top: 5px solid #2E5A36; /* Borde de color por defecto en la parte superior */
+      transition: transform 0.2s ease; /* Permite animación si la tarjeta se mueve o resalta */
+    }
+
+    /* Variantes de color en el borde superior de cada tarjeta */
+    .borde-rojo { border-top-color: #C62828; } /* Borde superior rojo */
+    .borde-cafe { border-top-color: #8D6E63; } /* Borde superior café */
+
+    .img-box {
+      width: 100%; /* Toma todo el ancho disponible de la tarjeta */
+      height: 180px; /* Altura estándar para todos los marcos de imagen */
+      border-radius: 12px; /* Esquinas curvas en la foto */
+      overflow: hidden; /* Corta partes sobrantes de la imagen fuera del marco */
+      background-color: #EEEEEE; /* Fondo gris temporal */
+      margin-bottom: 12px; /* Distancia respecto al nombre del personaje */
+    }
+
+    .img-box img {
+      width: 100%; /* Ajusta el ancho de la imagen */
+      height: 100%; /* Ajusta la altura de la imagen */
+      object-fit: cover; /* Recorta la imagen proporcionalmente sin deformarla */
+      object-position: top; /* Enfoca la cara o parte alta de la foto */
+    }
+
+    .tarjeta-personaje h4 {
+      font-family: 'Fredoka', sans-serif;
+      color: #2E5A36; /* Nombre en verde */
+      font-size: 1.1rem;
+      margin-bottom: 5px; /* Espacio para separar de la descripción */
+    }
+
+    .tarjeta-personaje p {
+      font-size: 0.8rem; /* Tamaño chico para incluir más información sin saturar */
+      color: #666666;
+      line-height: 1.4; /* Distancia entre líneas de texto */
+    }
+
+    footer {
+      background-color: #8C1C13; /* Fondo de color rojo patrio oscuro */
+      color: #FFFFFF; /* Texto blanco para resaltar */
+      text-align: center; /* Contenido centrado */
+      padding: 20px; /* Margen de espacio interno */
+      margin-top: 40px; /* Separación con el contenido principal */
+      border-radius: 15px 15px 0 0; /* Curvatura únicamente en la parte superior */
+    }
+
+    .autor-firma {
+      font-family: 'Great Vibes', cursive; /* Letra estilizada similar a una firma */
+      font-size: 2rem; /* Tamaño destacado */
+    }
+
+    .sub-firma {
+      font-size: 0.75rem; /* Texto secundario pequeño */
+      letter-spacing: 1.5px; /* Espaciado entre caracteres */
+      text-transform: uppercase; /* Fuerza el uso de mayúsculas */
+      opacity: 0.9; /* Opacidad sutil */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor"> <!-- Marco que limita el ancho del contenido central -->
+    <header> <!-- Bloque superior de la página -->
+      <h1 class="titulo-septiembre"> <!-- Título principal del sitio -->
+        <span class="verde">* SEP</span><span class="cafe">TIEM</span><span class="rojo">BRE *</span> <!-- Fragmentación con distintos colores -->
+      </h1>
+
+      <nav> <!-- Menú de botones para navegación -->
+        <a href="index.html">INICIO</a> <!-- Enlace a la página de inicio -->
+        <a href="calendario.html">CALENDARIO DE FECHAS FESTIVAS</a> <!-- Enlace a la sección de calendario -->
+        <a href="personajes.html" class="activo">PERSONAJES</a> <!-- Enlace resaltado por estar en la página actual -->
+        <a href="datoscuriosos.html">DATOS CURIOSOS</a> <!-- Enlace a datos curiosos -->
+        <a href="mitos.html">MITOS</a> <!-- Enlace a la página de mitos -->
+      </nav>
+    </header>
+
+    <main> <!-- Área de contenido principal -->
+      <h2 class="titulo-seccion">Rostros de la libertad</h2> <!-- Encabezado secundario de la sección -->
+
+      <div class="bloque-texto-personajes"> <!-- Tarjeta con el resumen inicial -->
+        <h3>Personajes Ilustres</h3>
+        <p>Conoce a los caudillos, héroes, heroínas y líderes que impuslsaron la lucha por la independencia y la defensa de la patria.</p>
+      </div>
+
+      <div class="grid-personajes"> <!-- Galería que agrupa todas las tarjetas -->
+        
+        <div class="tarjeta-personaje"> <!-- Tarjeta: Miguel Hidalgo -->
+          <div class="img-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYyJlP6Vb9mMENuAshgERXt-_hh08Ps-lXFMMWAsSm0w&s=10" alt="Miguel Hidalgo"> <!-- Fotografía o pintura -->
+          </div>
+          <h4>Miguel Hidalgo</h4>
+          <p>Conocido como el Padre de la Patria. Cura erudito que el 16 de Septiembre de 1810 encabezó el Grito de Dolores, concovando al pueblo a levantarse en armas contra el dominio español.</p>
+        </div>
+
+        <div class="tarjeta-personaje borde-rojo"> <!-- Tarjeta: José María Morelos con variante de borde rojo -->
+          <div class="img-box">
+            <img src="https://www.mexicodesconocido.com.mx/wp-content/uploads/2020/09/jose-maria-morelos.png" alt="Jose María Morelos">
+          </div>
+          <h4>Jose María Morelos</h4>
+          <p>El Siervo de la Nación, Lider militar y político de la segunda etapa de la Independencia; organizó el Congreso de Chilpancingo y redactó "Los Sentimientos de la Nación".</p>
+        </div>
+
+        <div class="tarjeta-personaje borde-cafe"> <!-- Tarjeta: Josefa Ortiz con variante de borde café -->
+          <div class="img-box">
+            <img src="https://cdn.milenio.com/uploads/media/2022/09/15/la-corregidora-museo-nacional-de.jpg" alt="Josefa Ortíz de Domínguez.">
+          </div>
+          <h4>Josefa Ortiz de Domínguez</h4>
+          <p>La Corregidora de Querétaro. Pieza clave de la conspiración de 1810 que arriesgó su vida al avisar a Hidalgo y Allende que el movimiento insurgente había sido descubierto.</p>
+        </div>
+
+        <div class="tarjeta-personaje"> <!-- Tarjeta: Ignacio Allende -->
+          <div class="img-box">
+            <img src="https://www.biografiasyvidas.com/biografia/a/fotos/allende_ignacio_2.jpg" alt="Ignacio Allende">
+          </div>
+          <h4>Ignacio Allende</h4>
+          <p>Capitán del ejército virreinal que se unió a la causa insurgente. Destacó por su formación militar y liderazgo en las primeras batallas del movimiento independista.</p>
+        </div>
+
+        <div class="tarjeta-personaje borde-rojo"> <!-- Tarjeta: Vicente Guerrero -->
+          <div class="img-box">
+            <img src="https://imagenes.elpais.com/resizer/v2/MMZ23AUPTRCMVE4NL3QG5W2LZY.jpeg?auth=d2a7a6d046952ca92ed3f81c6a8fda4cc813dfb7847e746c64d6a46406667910&width=1960&height=1470&smart=true" alt="Vicente Guerrero">
+          </div>
+          <h4>Vicente Guerrero</h4>
+          <p> General insurgente que mantuvo viva la resistencia mediante la guerra de guerrillas. Consumó la Independencia en 1821 tras pactarer el Plan de Iguala junto a Agustin de Iturbide.</p>
+        </div>
+
+        <div class="tarjeta-personaje borde-cafe"> <!-- Tarjeta: Agustín de Iturbide -->
+          <div class="img-box">
+            <img src="https://imagenes.elpais.com/resizer/v2/OMR47OC5PBABZJIPI3UTO7ZJEU.jpg?auth=68222c005b5375d3a6d3616a903aceb265ddef65f1c9c22ef825cb3904600f98&width=1960&height=1103&smart=true" alt="Agustín de Iturbide">
+          </div>
+          <h4>Agustín de Iturbide</h4>
+          <p> Comandante del Ejército Realista que unificó fuerzas con los insurgentes para formas el Ejército Trigarante, logrando la entrada triunfal a la Ciudad de México el 27 de Septiembre de 1821.</p>
+        </div>
+
+        <div class="tarjeta-personaje"> <!-- Tarjeta: Los Niños Héroes -->
+          <div class="img-box">
+            <img src="https://www.liderempresarial.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-12-at-7.22.57-PM.jpeg" alt="Niños Heroés">
+          </div>
+          <h4>Los Niños Héroes </h4>
+          <p>Seis cadetes del Colegio Militar (Juan de la Barrera, Juan Escutia, Fernando Montes de Oca, Vicente Suárez y Franciso Márquez) que defendieron el Castillo de Chapultepec el 13 de Septiemnre de 1847.</p>
+        </div>
+
+      </div> <!-- Cierre de la cuadrícula -->
+    </main>
+
+  </div> <!-- Cierre del contenedor principal -->
+
+  <footer> <!-- Pie de página -->
+    <div class="autor-firma">Izquierdo Gaytan Alexander | 5°J</div> <!-- Firma del alumno -->
+    <div class="sub-firma">24308051280852</div> <!-- Datos de matrícula -->
+  </footer>
+
+</body>
+</html>

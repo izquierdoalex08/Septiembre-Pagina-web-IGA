@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos Curiosos - Mes Patrio</title>
+  <!-- Carga tipografías externas de Google Fonts, incluyendo estilos cursivos manuscritos -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700;900&family=Montserrat:wght@500;700&family=Great+Vibes&family=Edu+NSW+ACT+Cursive:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #F8F3E6;
+      font-family: 'Montserrat', sans-serif;
+      color: #333333;
+    }
+
+    .contenedor {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: calc(100vh - 120px);
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0 30px 0;
+    }
+
+    .titulo-septiembre {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 3.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .verde { color: #2E5A36; }
+    .cafe { color: #8D6E63; }
+    .rojo { color: #C62828; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      background-color: #FFFFFF;
+      padding: 8px 15px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #555555;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover, nav a.activo {
+      background-color: #8CA986;
+      color: #FFFFFF;
+    }
+
+    .titulo-seccion {
+      text-align: center;
+      font-family: 'Fredoka', sans-serif;
+      color: #2E5A36;
+      font-size: 2.2rem;
+      margin: 30px 0 25px 0;
+    }
+
+    /* Distribución en rejilla para los datos curiosos */
+    .grid-datos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mantiene tarjetas anchas y adaptables al celular */
+      gap: 20px;
+    }
+
+    /* Estilo base para las tarjetas de datos */
+    .tarjeta-curiosa {
+      padding: 30px 25px;
+      border-radius: 35px; /* Redondeado amplio estilo bloque/nube */
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Centra verticalmente el contenido de cada bloque */
+    }
+
+    .tarjeta-curiosa h3 {
+      font-family: 'Edu NSW ACT Cursive', cursive; /* Fuente con estilo de escritura a mano */
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .tarjeta-curiosa p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+
+    /* Colores individuales para diferenciar cada bloque de información */
+    .caja-celeste { background-color: #82C4D9; }
+    .caja-azul { background-color: #649AD2; }
+    .caja-morada { background-color: #BA82D5; }
+    .caja-amarilla { background-color: #EEB543; }
+    
+    /* Variante en verde claro con ajuste de contraste en el texto */
+    .caja-verde { background-color: #BCF093; color: #2B4C1E; }
+    .caja-verde h3 { color: #2B4C1E; } /* Cambia el título a un verde oscuro para que se lea claro */
+
+    /* Bloque destacado para la frase especial */
+    .caja-frase {
+      background-color: #FF2E63; /* Color rosado/rojo encendido para romper el patrón */
+      padding: 25px;
+    }
+
+    .caja-frase p {
+      font-family: 'Fredoka', sans-serif; /* Cambia a tipografía redondeada y en negrita */
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    footer {
+      background-color: #8C1C13;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .autor-firma {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+    }
+
+    .sub-firma {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    
+    <header>
+      <h1 class="titulo-septiembre">
+        <span class="verde">* SEP</span><span class="cafe">TIEM</span><span class="rojo">BRE *</span>
+      </h1>
+
+      <nav>
+        <a href="index.html">INICIO</a>
+        <a href="calendario.html">CALENDARIO DE FECHAS FESTIVAS</a>
+        <a href="personajes.html">PERSONAJES</a>
+        <a href="datoscuriosos.html" class="activo">DATOS CURIOSOS</a> <!-- Marca esta sección como la activa -->
+        <a href="mitos.html">MITOS</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2 class="titulo-seccion">¿Sabías que...?</h2>
+
+      <div class="grid-datos">
+        
+        <!-- Cuadro de dato en color celeste -->
+        <div class="tarjeta-curiosa caja-celeste">
+          <h3>Una victoria sin Bandera</h3>
+          <p>En el Grito de Dolores de 1810 no se usó la bandera tricolor que hoy conocemos; Hidalgo tomó como primer estandarte insurgente un lienzo con la imagen de la Virgen de Guadalupe del santuario de Atotonilco.</p>
+        </div>
+
+        <!-- Cuadro de dato en color azul -->
+        <div class="tarjeta-curiosa caja-azul">
+          <h3>El Grito no fue a medianoche</h3>
+          <p>Miguel Hidalgo tocó la campana y convocó al pueblo la madrugada del 16 de septiembre (alrededor de las 5:00 a.m.). La celebración en la noche del 15 se popularizó años después para iniciar los festejos desde la víspera.</p>
+        </div>
+
+        <!-- Cuadro de dato en color morado -->
+        <div class="tarjeta-curiosa caja-morada">
+          <h3>El origen del Chile en Nogada</h3>
+          <p>Fue creado por las monjas agustinas del convento de Santa Mónica en Puebla para festejar a Agustín de Iturbide y los colores del Ejército Trigarante (verde, blanco y rojo).</p>
+        </div>
+
+        <!-- Cuadro de dato en color amarillo -->
+        <div class="tarjeta-curiosa caja-amarilla">
+          <h3>El héroe que firmó dos veces</h3>
+          <p>Vicente Guerrero es de los pocos caudillos que participó activamente desde los primeros años de la resistencia armada hasta ver consumada la Independencia en 1821.</p>
+        </div>
+
+        <!-- Cuadro destacado sin título con estilo de frase inspiradora -->
+        <div class="tarjeta-curiosa caja-frase">
+          <p>La historia se compone de miles de detalles; mantenerlos vivos es nuestro compromiso con el pasado.</p>
+        </div>
+
+        <!-- Cuadro de dato en color verde claro con contraste oscuro -->
+        <div class="tarjeta-curiosa caja-verde">
+          <h3>La campana viajera</h3>
+          <p>La campana original con la que Hidalgo llamó a las armas en Dolores, Guanajuato, fue trasladada en 1896 al Palacio Nacional en la Ciudad de México, donde el Presidente la repica cada 15 de septiembre.</p>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <footer>
+    <div class="autor-firma">Izquierdo Gaytan Alexander | 5°J</div>
+    <div class="sub-firma">24308051280852</div>
+  </footer>
+
+</body>
+</html>

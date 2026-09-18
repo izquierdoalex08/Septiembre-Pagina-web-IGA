@@ -1,0 +1,280 @@
+<!DOCTYPE html> <!-- Declara que este archivo es HTML5 -->
+<html lang="es"> <!-- Define que el idioma de la página es español -->
+<head> <!-- Configuración de la página, fuentes de letra y estilos visuales -->
+  <meta charset="UTF-8"> <!-- Permite mostrar acentos y la letra ñ sin errores -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página se ajuste bien en celulares y tablets -->
+  <title>Septiembre - Mes Patrio</title> <!-- Define el título que se ve en la pestaña del navegador -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Conecta con el servidor de fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Prepara la descarga segura de las letras -->
+  <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400;600&family=Fredoka:wght@700;900&family=Great+Vibes&family=Montserrat:wght@500;700&display=swap" rel="stylesheet"> <!-- Carga las letras bonitas que usamos en el sitio -->
+
+  <style>  /* Inicia la sección donde le damos color, tamaño y diseño a la página  */
+    * { /* Selecciona absolutamente todos los elementos de la página */
+      margin: 0; /* Quita el espacio exterior que trae el navegador por defecto */
+      padding: 0; /* Quita el espacio interior por defecto */
+      box-sizing: border-box; /* Incluye bordes y rellenos dentro del tamaño total del elemento */
+    } /* Cierra la regla general */ 
+
+    body { /* Configura el fondo y letra de todo el cuerpo de la página  */
+      background-color: #F8F3E6; /* Pone un fondo de color crema o beige claro */
+      font-family: 'Montserrat', sans-serif; /* Usa la letra Montserrat como tipo de letra principal */
+      color: #333333; /* Pone el texto en color gris oscuro para leer fácilmente */
+    } /* Cierra la regla del body  */
+
+    .contenedor { /* Controla la caja principal que envuelve el contenido  */
+      max-width: 1000px; /* Evita que la página se estire más de 1000 píxeles */
+      margin: 0 auto; /* Centra la caja horizontalmente en la pantalla */
+      padding: 20px; /* Deja un colchón de espacio adentro para no pegar el texto a la orilla */
+    } /* Cierra la regla del contenedor  */
+
+    header { /* Controla el área superior donde está el título y el menú */
+      text-align: center; /* Centra el título y los botones en medio de la pantalla */
+      padding: 20px 0 30px 0; /* Da espacio arriba (20px) y abajo (30px) */
+    } /* Cierra la regla del header  */
+
+    .titulo-septiembre { /* Estilo para el título grande principal  */
+      font-family: 'Fredoka', sans-serif; /* Usa una tipografía gruesa y redonda */
+      font-size: 3.2rem; /* Hace que el título tenga un tamaño bastante grande */
+      letter-spacing: 2px; /* Separa un poco las letras entre sí */
+      margin-bottom: 20px; /* Empuja el menú hacia abajo para que no quede pegado */
+    } /* Cierra la regla del título  */
+
+    .verde { color: #2d862d; } /* Pone las letras seleccionadas de color verde */
+    .cafe { color: #8D6E63; } /* Pone las letras seleccionadas de color café */
+    .rojo { color: #cc0000; } /* Pone las letras seleccionadas de color rojo */
+
+    nav { /* Contenedor de la barra con los botones de navegación  */
+      display: flex; /* Acomoda todos los botones uno al lado del otro en fila */
+      justify-content: center; /* Centra los botones en el medio */
+      gap: 10px; /* Deja un espacio de 10 píxeles entre cada botón */
+      background-color: #FFFFFF; /* Pone la barra de navegación de color blanco */
+      padding: 8px 15px; /* Crea un relleno interno para darle forma de barra */
+      border-radius: 30px; /* Redondea las esquinas de la barra estilo cápsula */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Pone una sombra suave debajo para darle realce */
+      flex-wrap: wrap; /* Permite que los botones se acomoden abajo si no caben en celular */
+    } /* Cierra la regla del nav */
+
+    nav a { /* Estilo individual para cada opción del menú  */
+      text-decoration: none; /* Quita la línea subrayada que traen los enlaces por defecto */
+      color: #555555; /* Pone el texto de los botones en color gris */
+      font-weight: 700; /* Pone la letra un poco más gruesa (negrita) */
+      font-size: 0.85rem; /* Ajusta el texto a un tamaño ligeramente pequeño */
+      padding: 8px 16px; /* Le da espacio alrededor al texto para que parezca botón */
+      border-radius: 20px; /* Redondea los bordes de cada botón individual */
+      transition: all 0.3s ease; /* Hace que el cambio de color al pasar el cursor sea suave */
+    } /* Cierra la regla de los enlaces  */
+
+    nav a:hover, nav a.activo { /* Efecto cuando pasas el cursor o cuando la página está seleccionada  */
+      background-color: #8CA986; /* Pone el fondo del botón de color verde pastel */
+      color: #FFFFFF; /* Cambia el color del texto a blanco para contrastar */
+    } /* Cierra la regla del hover  */
+
+    .seccion-inicio { /* Estructura principal: divide la pantalla en 2 bloques (Tarjeta de texto a la izquierda y fotos a la derecha) */
+      display: grid; /* Activa el modo cuadrícula para organizar el contenido */
+      grid-template-columns: 1fr 1.2fr; /* Crea 2 columnas: la izquierda estándar y la derecha un poco más ancha */
+      gap: 25px; /* Deja una separación de 25 píxeles entre el texto y las imágenes */
+      margin-top: 30px; /* Espacio hacia arriba para alejarse del menú */
+      align-items: center; /* Centra verticalmente la tarjeta de texto y la galería */
+    } /* Cierra la regla de la sección inicio */
+
+    .tarjeta-bienvenida { /* Estilo para el recuadro verde con la explicación */
+      background-color: #2E5A36; /* Fondo verde oscuro patrio */
+      color: #FFFFFF; /* Letras de color blanco */
+      padding: 35px 25px; /* Relleno interno grande para que el texto respire */
+      border-radius: 20px; /* Curvea las cuatro esquinas de la tarjeta */
+      text-align: center; /* Centra el texto explicativo */
+      line-height: 1.6; /* Separa los renglones para que se lea cómodamente */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Agrega sombra alrededor de la tarjeta */
+      font-family: 'Edu NSW ACT Cursive', cursive; /* Usa un estilo de letra que parece escrita a mano */
+      font-size: 1.35rem; /* Hace el texto un poco más grande que el tamaño normal */
+      font-weight: 400; /* Usa el grosor de letra estándar sin negrita */
+    } /* Cierra la regla de la tarjeta de bienvenida  */
+
+    .grid-fotos { /* Cuadrícula de fotos: organiza las 6 imágenes de los personajes en 3 columnas iguales  */
+      display: grid; /* Activa el modo cuadrícula para las fotos */
+      grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de exactamente el mismo tamaño */
+      gap: 15px; /* Separa cada foto por 15 píxeles */
+    } /* Cierra la regla de la cuadrícula de fotos  */
+
+    .foto-box { /* Contenedor individual de cada fotografía  */
+      height: 180px; /* Ajusta todas las casillas a una altura fija de 180 píxeles */
+      border-radius: 12px; /* Redondea las esquinas de cada recuadro */
+      overflow: hidden; /* Oculta cualquier parte de la imagen que intente salirse */
+      background-color: #DDD; /* Color gris de fondo mientras carga la foto */
+    } /* Cierra la regla de la caja de foto  */
+
+    .foto-box img { /* Estilo directo para la imagen dentro de la casilla  */
+      width: 100%; /* Ocupa todo el ancho de su casilla */
+      height: 100%; /* Ocupa toda la altura de su casilla */
+      object-fit: cover; /* Evita que las imágenes se deformen o aplasten adaptándolas al recuadro */
+      object-position: top; /* Enfoca la parte superior de las fotos para ver los rostros */
+    } /* Cierra la regla de la imagen  */
+
+    .marco-verde { border: 4px solid #388E3C; } /* Añade borde grueso de color verde */
+    .marco-rojo { border: 4px solid #D32F2F; } /* Añade borde grueso de color rojo */
+    .marco-naranja { border: 4px solid #F57C00; } /* Añade borde grueso de color naranja */
+    .marco-azul { border: 4px solid #1976D2; } /* Añade borde grueso de color azul */
+    .marco-rosa { border: 4px solid #E91E63; } /* Añade borde grueso de color rosa */
+    .marco-morado { border: 4px solid #C71585; } /* Añade borde grueso de color morado */
+
+    .seccion-linea { /* Área completa de la línea del tiempo  */
+      margin-top: 60px; /* Separa la línea del tiempo de la sección de arriba */
+      padding-top: 20px; /* Da un espacio antes de la línea punteada */
+      border-top: 2px dashed #D7CCC8; /* Pone una línea punteada horizontal como divisoria */
+    } /* Cierra la regla de la sección de línea */
+
+    .titulo-seccion { /* Título que dice "Línea del tiempo" */
+      text-align: center; /* Centra el texto del título en la pantalla */
+      font-family: 'Fredoka', sans-serif; /* Usa la tipografía 'Fredoka' (gruesa y redonda) */
+      color: #2E5A36; /* Aplica el color verde oscuro al texto */
+      font-size: 2rem; /* Ajusta el tamaño de la letra al doble del tamaño base */
+      margin-bottom: 25px; /* Agrega un espacio hacia abajo para separarlo de las tarjetas */
+    } /* Cierra la regla del título de sección  */
+
+    .contenedor-timeline { /* Caja que guarda todas las tarjetas de la línea del tiempo  */
+      display: flex; /* Acomoda los eventos horizontalmente uno tras otro */
+      gap: 15px; /* Espacio de 15 píxeles entre cada tarjeta de evento */
+      overflow-x: auto; /* Permite deslizar hacia los lados si no caben en la pantalla */
+      padding-bottom: 10px; /* Espacio abajo para que no se pegue la barra de desplazamiento */
+    } /* Cierra el contenedor de la línea del tiempo  */
+
+    .tarjeta-evento { /* Cuadro individual para cada fecha histórica  */
+      background-color: #FFFFFF; /* Tarjeta con fondo de color blanco */
+      border-radius: 15px; /* Esquinas redondeadas */
+      padding: 20px 15px; /* Espacio interno para que el texto no toque los bordes */
+      flex: 1; /* Hace que todas las tarjetas intenten medir lo mismo */
+      min-width: 180px; /* Asegura un ancho mínimo para que no se aplasten */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra ligera debajo de la tarjeta */
+      border-top: 5px solid #2E5A36; /* Borde de color en la parte de arriba */
+      text-align: center; /* Centra el año y el texto */
+    } /* Cierra la regla de la tarjeta de evento  */
+
+    .evento-1 { border-top-color: #2E5A36; } /* Borde superior verde */
+    .evento-2 { border-top-color: #F57C00; } /* Borde superior naranja */
+    .evento-3 { border-top-color: #C62828; } /* Borde superior rojo */
+    .evento-4 { border-top-color: #8D6E63; } /* Borde superior café */
+
+    .fecha-evento { /* Estilo para el número del año (ej. 1810) */
+      font-family: 'Fredoka', sans-serif; /* Usa la tipografía 'Fredoka' para destacar el año */
+      font-size: 1.1rem; /* Hace el número un poco más grande que el texto explicativo */
+      color: #2E5A36; /* Color verde oscuro para la fecha */
+      margin-bottom: 8px; /* Separa el año del párrafo explicativo que está abajo */
+    } /* Cierra la regla de la fecha del evento  */
+
+    .tarjeta-evento p { /* Párrafos descriptivos dentro de cada tarjeta  */
+      font-size: 0.85rem; /* Tamaño de letra compacto para que quepa la explicación */
+      line-height: 1.4; /* Ajusta la separación entre renglones para leer bien */
+      color: #555555; /* Color gris medio para la lectura */
+    } /* Cierra la regla del párrafo del evento  */
+
+    footer { /* Pie de página que se ubica hasta el fondo  */
+      background-color: #8C1C13; /* Fondo de color rojo patrio fuerte */
+      color: #FFFFFF; /* Texto en color blanco */
+      text-align: center; /* Centra los datos del autor en el medio */
+      padding: 25px 20px; /* Espacio interno arriba y abajo */
+      margin-top: 50px; /* Separa el pie de página de la línea del tiempo */
+      border-radius: 15px 15px 0 0; /* Redondea solo las dos esquinas de arriba */
+    } /* Cierra la regla del pie de página  */
+
+    .autor-firma { /* Estilo para tu nombre completo */
+      font-family: 'Great Vibes', cursive; /* Tipografía elegante estilo firma manuscrita */
+      font-size: 2.2rem; /* Tamaño grande para destacar el nombre */
+      margin-bottom: 5px; /* Separa el nombre del número de matrícula */
+      letter-spacing: 1px; /* Separa un poco las letras de la firma */
+    } /* Cierra la regla de la firma */
+
+    .sub-firma { /* Estilo para tu matrícula o número  */
+      font-size: 0.75rem; /* Tamaño de letra pequeño */
+      letter-spacing: 1.5px; /* Separa los números para que se vean ordenados */
+      text-transform: uppercase; /* Asegura que todo esté en mayúsculas */
+      opacity: 0.9; /* Le da una ligera transparencia muy sutil */
+    } /* Cierra la regla de la sub-firma  */
+  </style> <!-- Cierra el bloque de estilos CSS -->
+</head> <!-- Cierra la configuración de la página -->
+<body> <!-- Inicia el contenido visible de la página -->
+
+  <div class="contenedor"> <!-- Abre la caja que centra el contenido en la pantalla -->
+    
+    <header> <!-- Abre la sección del encabezado -->
+      <h1 class="titulo-septiembre"> <!-- Abre el título principal de la página -->
+        <span class="verde">* SEP</span><span class="cafe">TIEM</span><span class="rojo">BRE *</span> <!-- Pinta cada pedazo de la palabra con los colores patrios -->
+      </h1> <!-- Cierra el título principal -->
+
+      <nav> <!-- Abre la barra con los botones del menú -->
+        <a href="inicio.html" class="activo">INICIO</a> <!-- Botón a la página de inicio marcada como activa -->
+        <a href="calendario.html">CALENDARIO DE FECHAS FESTIVAS</a> <!-- Botón que lleva a la página del calendario -->
+        <a href="personajes.html">PERSONAJES</a> <!-- Botón que lleva a la lista de personajes -->
+        <a href="datoscuriosos.html">DATOS CURIOSOS</a> <!-- Botón que lleva a la sección de datos curiosos -->
+        <a href="mitos.html">MITOS</a> <!-- Botón que lleva a la sección de mitos -->
+      </nav> <!-- Cierra la barra del menú -->
+    </header> <!-- Cierra el encabezado -->
+
+    <section id="inicio" class="seccion-inicio"> <!-- Abre la sección principal de bienvenida -->
+      
+      <div class="tarjeta-bienvenida"> <!-- Abre el recuadro verde con el texto -->
+        <p>Septiembre en la historia de México, un recorrido por el mes que definió nuestra identidad nacional.</p> <!-- Primer párrafo de bienvenida -->
+        <br> <!-- Da un salto de línea en blanco -->
+        <p>A través de este material interactivo explorarás los acontecimientos clave, los personajes emblemáticos y los mitos históricos que dieron forma a la independencia y a la memoria cívica de nuestro país.</p> <!-- Segundo párrafo de bienvenida -->
+      </div> <!-- Cierra el recuadro verde -->
+
+      <div class="grid-fotos"> <!-- Abre la cuadrícula para las 6 fotografías -->
+        <div class="foto-box marco-verde"> <!-- Caja para foto con marco verde -->
+          <img src="https://static.wikia.nocookie.net/mexico/images/b/bf/Miguel_Hidalgo_y_Costilla.png/revision/latest/scale-to-width-down/600?cb=20120630183818&path-prefix=es" alt="Miguel Hidalgo"> <!-- Imagen de Miguel Hidalgo -->
+        </div> <!-- Cierra casilla de foto -->
+        <div class="foto-box marco-rojo"> <!-- Caja para foto con marco rojo -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Ignacio_Allende.jpg" alt="Ignacio Allende"> <!-- Imagen de Ignacio Allende -->
+        </div> <!-- Cierra casilla de foto -->
+        <div class="foto-box marco-naranja"> <!-- Caja para foto con marco naranja -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Jos%C3%A9_Mar%C3%ADa_Morelos.png" alt="José María Morelos"> <!-- Imagen de José María Morelos -->
+        </div> <!-- Cierra casilla de foto -->
+        <div class="foto-box marco-rosa"> <!-- Caja para foto con marco rosa -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Josefa_Ortiz%2C_%C3%B3leo_sobre_tela.jpg" alt="Josefa Ortiz"> <!-- Imagen de Josefa Ortiz -->
+        </div> <!-- Cierra casilla de foto -->
+        <div class="foto-box marco-azul"> <!-- Caja para foto con marco azul -->
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Agustin_I_of_Mexico.jpg" alt="Agustín de Iturbide"> <!-- Imagen de Agustín de Iturbide -->
+        </div> <!-- Cierra casilla de foto -->
+        <div class="foto-box marco-morado"> <!-- Caja para foto con marco morado -->
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZYF0bf1Je_2YgDYDpTX-Vvk1e2pmi2-n-FD5inlFiWNXRvioy2w461A6D&s=10" alt="Guadalupe Victoria"> <!-- Imagen de Guadalupe Victoria -->
+        </div> <!-- Cierra casilla de foto -->
+      </div> <!-- Cierra la cuadrícula de fotos -->
+
+    </section> <!-- Cierra la sección de inicio -->
+    
+    <section id="linea-tiempo" class="seccion-linea"> <!-- Abre la sección para la línea del tiempo -->
+      <h2 class="titulo-seccion">Línea del tiempo</h2> <!-- Título secundario de la sección -->
+
+      <div class="contenedor-timeline"> <!-- Abre el contenedor para las tarjetas horizontales -->
+        
+        <div class="tarjeta-evento evento-1"> <!-- Abre tarjeta del primer evento -->
+          <div class="fecha-evento">1765</div> <!-- Muestra el año 1765 -->
+          <p><strong>Natalicio de José María Morelos y Pavón:</strong> Nace en Valladolid (hoy Morelia) uno de los principales caudillos del movimiento insurgente y redactor de "Sentimientos de la Nación".</p> <!-- Explicación del evento -->
+        </div> <!-- Cierra tarjeta del primer evento -->
+
+        <div class="tarjeta-evento evento-2"> <!-- Abre tarjeta del segundo evento -->
+          <div class="fecha-evento">1810</div> <!-- Muestra el año 1810 -->
+          <p><strong>Descubrimiento de la conspiración:</strong> Se descubre la conspiración de Querétaro y Miguel Hidalgo decide adelantarse al levantamiento armado esa misma noche en Dolores, Guanajuato.</p> <!-- Explicación del evento -->
+        </div> <!-- Cierra tarjeta del segundo evento -->
+
+        <div class="tarjeta-evento evento-3"> <!-- Abre tarjeta del tercer evento -->
+          <div class="fecha-evento">1821</div> <!-- Muestra el año 1821 -->
+          <p><strong>Consumación de la Independencia:</strong> El Ejército Trigarante de Agustín de Iturbide y Vicente Guerrero entra triunfalmente a la Ciudad de México, poniendo fin a 11 años de guerra.</p> <!-- Explicación del evento -->
+        </div> <!-- Cierra tarjeta del tercer evento -->
+
+        <div class="tarjeta-evento evento-4"> <!-- Abre tarjeta del cuarto evento -->
+          <div class="fecha-evento">1847</div> <!-- Muestra el año 1847 -->
+          <p><strong>Gesta Heroica de los Niños Héroes:</strong> Durante la intervención estadounidense, los cadetes del Colegio Militar defienden el Castillo de Chapultepec frente a las tropas enemigas.</p> <!-- Explicación del evento -->
+        </div> <!-- Cierra tarjeta del cuarto evento -->
+
+      </div> <!-- Cierra el contenedor de las tarjetas -->
+    </section> <!-- Cierra la sección de la línea del tiempo -->
+
+  </div> <!-- Cierra la caja contenedora principal -->
+
+  <footer> <!-- Abre el pie de página de la web -->
+    <div class="autor-firma">Izquierdo Gaytan Alexander | 5°J</div> <!-- Muestra tu nombre completo y grupo con letra tipo firma -->
+    <div class="sub-firma">24308051280852</div> <!-- Muestra tu número de matrícula o número de control -->
+  </footer> <!-- Cierra el pie de página -->
+
+</body> <!-- Cierra el cuerpo de la página -->
+</html> <!-- Fin de todo el código HTML -->

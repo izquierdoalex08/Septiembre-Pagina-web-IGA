@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario - Mes Patrio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700;900&family=Montserrat:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    /* Resetea los márgenes por defecto para que todo alinee parejo */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Define el fondo crema general y la fuente principal */
+    body {
+      background-color: #F8F3E6;
+      font-family: 'Montserrat', sans-serif;
+      color: #333333;
+    }
+
+    /* Limita el ancho del sitio y lo centra en la pantalla */
+    .contenedor {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: calc(100vh - 120px);
+    }
+
+    /* Centra el encabezado y le da espacio vertical */
+    header {
+      text-align: center;
+      padding: 20px 0 30px 0;
+    }
+
+    /* Da tamaño grande y estilo al título de la cabecera */
+    .titulo-septiembre {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 3.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    /* Colores individuales para las letras del título */
+    .verde { color: #2E5A36; }
+    .cafe { color: #8D6E63; }
+    .rojo { color: #C62828; }
+
+    /* Barra de navegación centrada y con bordes redondeados */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      background-color: #FFFFFF;
+      padding: 8px 15px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+
+    /* Estilo de los botones del menú de navegación */
+    nav a {
+      text-decoration: none;
+      color: #555555;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    /* Cambia de color al pasar el ratón o estar en la página activa */
+    nav a:hover, nav a.activo {
+      background-color: #8CA986;
+      color: #FFFFFF;
+    }
+
+    /* Estilo para el título verde de la sección principal */
+    .titulo-seccion {
+      text-align: center;
+      font-family: 'Fredoka', sans-serif;
+      color: #2E5A36;
+      font-size: 2.2rem;
+      margin: 30px 0 20px 0;
+    }
+
+    /* Acomoda la tabla y la tarjeta lateral frente a frente */
+    .seccion-flex-calendario {
+      display: flex;
+      gap: 25px;
+      margin-top: 25px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* Opciones principales de la tabla de fechas */
+    .tabla-fechas {
+      flex: 1.2;
+      min-width: 300px;
+      border-collapse: collapse;
+      background-color: #FFFFFF;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Diseño del encabezado verde de la tabla */
+    .tabla-fechas th {
+      background-color: #2E5A36;
+      color: #FFFFFF;
+      font-family: 'Fredoka', sans-serif;
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    /* Diseño de los datos dentro de las celdas de la tabla */
+    .tabla-fechas td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #F0EAE1;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    /* Quita la línea divisoria a la última fila de la tabla */
+    .tabla-fechas tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Formato especial en rojo para la columna de las fechas */
+    .col-fecha {
+      font-family: 'Fredoka', sans-serif;
+      color: #C62828;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    /* Cuadro informativo que acompaña a la tabla */
+    .bloque-texto-info {
+      flex: 1;
+      min-width: 260px;
+      background-color: #FFFFFF;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border-left: 6px solid #8D6E63;
+    }
+
+    /* Estilo del título en el cuadro informativo */
+    .bloque-texto-info h3 {
+      font-family: 'Fredoka', sans-serif;
+      color: #2E5A36;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    /* Estilo del texto en el cuadro informativo */
+    .bloque-texto-info p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #555555;
+    }
+
+    /* Tamaño y fuente de los números de días */
+    .dia-numero {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.5rem;
+      color: #2E5A36;
+      margin-bottom: 8px;
+    }
+
+    /* Colores alternativos para resaltar días específicos */
+    .tarjeta-fecha.borde-rojo .dia-numero { color: #C62828; }
+    .tarjeta-fecha.borde-naranja .dia-numero { color: #F57C00; }
+    .tarjeta-fecha.borde-azul .dia-numero { color: #1976D2; }
+
+    /* Estilo de los subtítulos dentro de las tarjetas */
+    .tarjeta-fecha h3 {
+      font-size: 1rem;
+      color: #222222;
+      margin-bottom: 10px;
+    }
+
+    /* Estilo de los párrafos dentro de las tarjetas */
+    .tarjeta-fecha p {
+      font-size: 0.85rem;
+      color: #555555;
+      line-height: 1.5;
+    }
+
+    /* Pie de página con fondo guinda */
+    footer {
+      background-color: #8C1C13;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-radius: 15px 15px 0 0;
+    }
+
+    /* Fuente cursiva grande para el nombre del autor */
+    .autor-firma {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+    }
+
+    /* Subtexto con matrícula o número de lista */
+    .sub-firma {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    
+    <header>
+      <h1 class="titulo-septiembre">
+        <span class="verde">* SEP</span><span class="cafe">TIEM</span><span class="rojo">BRE *</span>
+      </h1>
+
+      <nav>
+        <a href="index.html">INICIO</a>
+        <a href="calendario.html" class="activo">CALENDARIO DE FECHAS FESTIVAS</a> <!-- Marca la página actual como activa -->
+        <a href="personajes.html">PERSONAJES</a>
+        <a href="datoscuriosos.html">DATOS CURIOSOS</a>
+        <a href="mitos.html">MITOS</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2 class="titulo-seccion">Calendario Festivo</h2>
+
+      <!-- Sección flexible que organiza la tabla a un lado y la información al otro -->
+      <div class="seccion-flex-calendario">
+        
+        <!-- Tabla estructurada con las fechas más importantes -->
+        <table class="tabla-fechas">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Acontecimiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-fecha">13 de Sep</td>
+              <td><strong>Día de los Niños Héroes:</strong> Conmemoración de la defensa del Castillo de Chapultepec.</td>
+            </tr>
+            <tr>
+              <td class="col-fecha">15 de Sep</td>
+              <td><strong>El Grito de Dolores:</strong> Ceremonia del inicio de la lucha por la Independencia.</td>
+            </tr>
+            <tr>
+              <td class="col-fecha">16 de Sep</td>
+              <td><strong>Aniversario de la Independencia:</strong> Desfile militar y festejos cívicos oficiales.</td>
+            </tr>
+            <tr>
+              <td class="col-fecha">19 de Sep</td>
+              <td><strong>Día Nacional de Protección Cívil:</strong> Homenaje a la solidaridad ciudadana tras los sismos de 1985 y 2017 y fomento de la prevención.</td>
+            </tr>
+            <tr>
+              <td class="col-fecha">27 de Sep</td>
+              <td><strong>Consumación de la Lucha:</strong> Entrada del Ejército Trigarante en 1821.</td>
+            </tr>
+            <tr>
+              <td class="col-fecha">30 de Sep</td>
+              <td><strong>Natalicio de Jose María Morelos:</strong> Conmemoración del nacimiento de José María Morelos y Pavón (1765), el "Siervo de la Nación".</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Bloque de texto descriptivo a un costado de la tabla -->
+        <div class="bloque-texto-info">
+          <h3>Explora día a día los eventos civos, feriados oficiales y conmemoraciones clave del mes de Septiembre.</h3>
+          <p>
+            Septiembre: Mes de la patria, guía con los hitos historicos más relevantes del mes. Incluye efeméridades del calendario cívico.
+          </p>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="autor-firma">Izquierdo Gaytan Alexander | 5°J</div>
+    <div class="sub-firma">24308051280852</div>
+  </footer>
+
+</body>
+</html>
